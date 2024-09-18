@@ -1,3 +1,3 @@
 "use strict";
 
-console.log("hello"); // 수정 
+console.log("hello"); // 수정 2
