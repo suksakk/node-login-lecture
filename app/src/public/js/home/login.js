@@ -14,5 +14,15 @@ function login() {
         id: id.value,
         psword: psword.value,
     };
-    console.log(req);
+    
+    // console.log(req); // 콘솔에서 확인 시 object 형식 키-값으로 구성
+    // console.log(JSON.stringify(req)); // JSON은 문자열로 결과 { } 안으로 문자열로 구성된다.
+    // fetch를 이용하여 브라우저에 입력한 값을 서버에 전달
+    fetch("/login", { // object 형태로 전달
+        method: "POST", // body를 통해 전달을 할 때는 http 메서드 사용해야한다.
+        headers: {  // 내가 요청, 전달하는 데이터가 JSON 데이터라고 알려주는 방법은
+            "Content-Type": "application/json", // 내가 보내는 데이터 타입의 명시
+        },
+        body: JSON.stringify(req)  // stringify - object를 문자열로 바꿔주는 메서드
+    })
 }
