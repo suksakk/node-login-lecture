@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- node 개발 할때 그냥 링크만으로는 접근이 불가 app.js에서 미들웨어로 등록해야한다 app.js 이동 -->
-    <script src="/js/home/login.js"></script>
+    <!-- defer를 넣는 이유는 login.js 파일에서 값을 넘겨주기 전에 다른 코드가 먼저 실행되어 defer를 넣어 선행 코드로 실행하도록 한다 -->
+    <script src="/js/home/login.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-<input type="text" placeholder="아이디" /><br /> <input type="text" placeholder="비밀번호" /><br />
+<input id="id" type="text" placeholder="아이디" /><br /> <input id="psword" type="text" placeholder="비밀번호" /><br />
 <button>로그인</button>
 </body>
 </html>
