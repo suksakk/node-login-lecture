@@ -24,5 +24,13 @@ function login() {
             "Content-Type": "application/json", // 내가 보내는 데이터 타입의 명시
         },
         body: JSON.stringify(req)  // stringify - object를 문자열로 바꿔주는 메서드
-    }).then((res) => res.json()).then(console.log);  // then - fetch 전달한 것을 응답한 데이터를 받기 위한 것
+    }).then((res) => res.json()).then((res) => {
+        if (res.success) {
+            location.href = "/";
+        } else {
+            alert(res.msg);
+        } // then - fetch 전달한 것을 응답한 데이터를 받기 위한 것
+    }).catch((err) => {
+        console.error("로그인 중 에러 발생");
+    })
 }

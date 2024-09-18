@@ -1,5 +1,6 @@
 "use strict"; // 이크마 문법 준수
 
+// backend
 
 const express = require("express");
 const router = express.Router();
