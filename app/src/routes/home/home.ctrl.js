@@ -1,5 +1,7 @@
 "use strict";
 
+const UserStroage = require("../../models/UserStorage");
+
 
 // req -> frontend, res -> backend
 const output = {
@@ -18,10 +20,7 @@ const output = {
     },
 };
 
-const users = {
-    id: ["SAKK", "나개발", "김팀장"],
-    password: ["123", "1234", "12345"],
-}
+
 const process = {
     login: (req, res) => {
         // console.log(req.body); // body 파싱 할 수 있도록 미들웨어 모듈 설치 move to app.js
@@ -33,20 +32,22 @@ const process = {
         const id = req.body.id,
             password = req.body.password;
         
-        // id와 password frontend에서 전달한 id가 users 있는 id가 동일하게 있다면 users.id.indexOf(id) -> indexOf - 특정 문자 위치 찾기를 하여 idx에 저장  
+        const users = UserStroage.getUsers("id", "password"); // 받아오고 싶은 정보를 정해줄 수 있도록 한다
+        
+        
+        const response = {};
+        // id와 password frontend에서 전달한 id가 users 있는 id가 동일하게 있다면 users.id.indexOf(id) -> indexOf - 특정 문자 위치 찾기를 하여 idx에 저장
         if (users.id.includes(id)) {
             const idx = users.id.indexOf(id);
             if (users.password[idx] === password) { // backend에서 idx 저장 값을 해서 === frontend password와 동일하다면
-                return res.json({ // res.json -> json 형식으로 전달하여 frontend로 응답
-                    success: true,
-                });
+                response.success = true;
+                return res.json(response); // res.json -> json 형식으로 전달하여 frontend로 응답
             }
         }
         
-        return res.json({
-            success: false,
-            msg: "로그인에 실패하셨습니다.",
-        })
+        response.success = false;
+        response.msg = "로그인에 실패하였습니다.";
+        return res.json(response);
     },
 };
 
