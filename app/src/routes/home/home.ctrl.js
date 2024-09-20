@@ -24,9 +24,9 @@ const output = {
 
 
 const process = {
-    login: (req, res) => {
+    login: async (req, res) => {
         const user = new User(req.body);
-        const response = user.login();
+        const response = await user.login();
         return res.json(response);
         
         //     // console.log(req.body); // body 파싱 할 수 있도록 미들웨어 모듈 설치 move to app.js

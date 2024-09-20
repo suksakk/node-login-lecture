@@ -1,5 +1,6 @@
 "use strict";
 
+const {response} = require("express");
 const UserStorage = require("./UserStorage");
 
 class User {
@@ -7,9 +8,12 @@ class User {
         this.body = body;
     }
     
-    login() {
+    // >>> await - Promise를 반환하기 때문에 .then()으로도 접근하여 데이터를 가져올 수 있다.
+    // await을 사용해준 이유는 "가독성" 때문이다. fs(파일시스템)에서도 await으로 가져올 수 있다.
+    // 추가로 async 에서만 사용가능하다. <<<
+    async login() {
         const client = this.body;
-        const {id, password} = UserStorage.getUserInfo(client.id);
+        const {id, password} = await UserStorage.getUserInfo(client.id);
         
         if (id) {
             if (id === client.id && password === client.password) {
