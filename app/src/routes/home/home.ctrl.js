@@ -1,7 +1,7 @@
 "use strict";
 
+// 모듈
 const User = require("../../models/User");
-
 
 // req -> frontend, res -> backend
 const output = {
