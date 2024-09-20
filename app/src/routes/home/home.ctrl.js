@@ -43,6 +43,7 @@ const process = {
         //
         //
         //     const response = {};
+        //     // 이 코드 그대로 가져다가 User.js - login() 함수에 붙이면 된다.
         //     // id와 password frontend에서 전달한 id가 users 있는 id가 동일하게 있다면
         //     // users.id.indexOf(id) -> indexOf - 특정 문자 위치 찾기를 하여 idx에 저장
         //     if (users.id.includes(id)) {
