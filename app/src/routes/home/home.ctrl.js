@@ -14,10 +14,12 @@ const output = {
     // 	// 기능
     // 	res.render("home/index"); // 이동 경로
     // }
-    
     login: (req, res) => {
         res.render("home/login");
     },
+    register: (req, res) => {
+        res.render("home/register");
+    }
 };
 
 

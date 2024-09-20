@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="/css/home/login.css">
+    <!-- node 개발 할때 그냥 링크만으로는 접근이 불가 app.js에서 미들웨어로 등록해야한다 app.js 이동 -->
+    <!-- defer를 넣는 이유는 login.js 파일에서 값을 넘겨주기 전에 다른 코드가 먼저 실행되어 defer를 넣어 선행 코드로 실행하도록 한다 -->
+    <script src="/js/home/login.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form">
+            <input id="id" type="text" placeholder="아이디" />
+            <input id="name" type="text" placeholder="이름" />
+            <input id="password" type="password" placeholder="비밀번호" />
+            <input id="confirm-password" type="password" placeholder="비밀번호 확인" />
+            <button>SIGN UP</button>
+            <p class="message">Already registered? <a href="/register">Login</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--Copyright (c) 2024 by Aigars Silkalns (https://codepen.io/colorlib/pen/rxddKy)-->
