@@ -9,13 +9,17 @@ const id = document.querySelector("#id"), // 질의 선택자 html에 있는 id 
 // DOM -> Document Object Model 인터페이스 자바스크립트에서 html에 존재하는 데이터를 가져와서 제어가능
 registerBtn.addEventListener("click", register);
 
+
 // frontend
 function register() {
+    if (!id.value) return alert("아이디를 입력해주세요.");
+    if (password.value !== confirmPassword.value) {
+        return alert("비밀번호가 일치하지 않습니다.");
+    }
     const req = {
         id: id.value,
         name: name.value,
         password: password.value,
-        confirmPassword: confirmPassword.value
     };
     
     // console.log(req); // 콘솔에서 확인 시 object 형식 키-값으로 구성
